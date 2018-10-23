@@ -1,0 +1,20 @@
+%% Point opration
+%inverting
+clear;
+clc;
+i1= imread('D:\matlab class\image\1327-w.jpg');
+gr1 = rgb2gray(i1);
+his1 = imhist(gr1); 
+
+J(:,:,:)=255-gr1(:,:,:);
+hisJ = imhist(J); 
+
+figure(1),subplot(1,2,1),imshow(i1)  
+title('original image');
+figure(1),subplot(1,2,2),bar(his1,'BarWidth',1)
+title('original histogram');
+
+figure(2),subplot(1,2,1),imshow(J)  
+title('Invert image');
+figure(2),subplot(1,2,2),bar(hisJ,'BarWidth',1)
+title('Invert histogram');
