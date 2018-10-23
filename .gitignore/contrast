@@ -1,0 +1,28 @@
+%% Point opration
+%contrast
+clear;
+clc;
+i1= imread('D:\matlab class\image\1327-w.jpg');
+gr1 = rgb2gray(i1);
+his1 = imhist(gr1); 
+% high contrast
+Jh = imadjust(gr1,[0.3 0.7],[0 1]);
+hisJh = imhist(Jh);
+% low contrast
+Jl = imadjust(gr1,[0 1],[0.3 0.7]);
+hisJl = imhist(Jl);
+
+figure(1),subplot(1,2,1),imshow(i1)  
+title('original image');
+figure(1),subplot(1,2,2),bar(his1,'BarWidth',1)
+title('original histogram');
+
+figure(2),subplot(1,2,1),imshow(Jh)  
+title('High contrast image');
+figure(2),subplot(1,2,2),bar(hisJh,'BarWidth',1)
+title('High contrast histogram');
+
+figure(3),subplot(1,2,1),imshow(Jl)  
+title('Low contrast image');
+figure(3),subplot(1,2,2),bar(hisJl,'BarWidth',1)
+title('Low contrast  histogram');
